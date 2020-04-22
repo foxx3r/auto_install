@@ -11,15 +11,21 @@ then
     apt update
     apt upgrade -y
     apt install sudo -y
+    echo "você deseja criar/configurar seu usuário?\n1 - sim\n2 - não"
+    read -p "-> " user_config
+    if [[ $user_config == "1" ]]
+    then
+        adduser foxxer
+        echo "foxxer    ALL=(ALL:ALL) ALL" >> /etc/sudoers
+    fi
     apt install clisp sbcl -y
     apt install python3-pip -y
-    apt install swi-prolog python curl wget clang zsh git elixir neovim nodejs -y
+    apt install swi-prolog gnupg python curl wget clang zsh git elixir neovim nodejs -y
     git config --global user.email "coluna123@protonmail.ch"
     git config --global user.name "foxx3r"
     npm i -g yarn
     pip install httpie
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/foxx3r/amazing-vimrc/master/install.sh)"
-    sed -i "s/robbyrussell/clean/g" $HOME/.zshrc
     echo -e "você quer instalar o ambiente haskell?\n1 - sim\n2 - não"
     read -p "-> " haskell_environment
     if [[ $haskell_environment == "1" ]]
@@ -27,7 +33,7 @@ then
         apt install haskell-platform -y
     fi
     echo -e "você quer instalar o ambiente rust?\n1 - sim\n2 - não"
-    read "-> " rust_environment
+    read -p "-> " rust_environment
     if [[ $rust_environment == "1" ]]
     then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -38,6 +44,22 @@ then
     then
         apt install emacs -y
         echo -e "(require 'package)\n(add-to-list 'package-archives '(\"melpa\" . \"http://melpa.milkbox.net/packages/\"))\n(package-initialize)" >> $HOME/.emacs
+    fi 
+    echo -e "você quer instalar o ambiente F#?\n1 - sim\n2 - não"
+    read -p "-> " fsharp_environment
+    if [[ $fsharp_environment == "1" ]]
+    then
+        apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+        echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
+        apt update 
+        apt install mono-complete fsharp
+    fi
+    echo -e "você gostaria de instalar o ambiente desktop?\n1 - sim\n2 - não"
+    read -p "-> " desktop_environment
+    if [[ $desktop_environment == "1" ]]
+    then
+        apt install chromium evince qterminal vlc -y
+        wget https://updates.tdesktop.com/tlinux32/tsetup32.2.0.1.tar.xz
     fi
     cd $HOME
     mkdir programacao math livros musicas filmes
@@ -70,12 +92,5 @@ then
     git clone https://github.com/foxx3r/monitor-do-sistema shell/git/monitor-do-sistema
     git clone https://github.com/foxx3r/whereisfox shell/git/whereisfox
     git clone https://github.com/foxx3r/auto_install shell/git/auto_install
-    echo -e "você gostaria de instalar o ambiente desktop?\n1 - sim\n2 - não"
-    read -p "-> " desktop_environment
-    if [[ $desktop_environment == "1" ]]
-    then
-        apt install chromium evince qterminal vlc -y
-        wget https://updates.tdesktop.com/tlinux32/tsetup32.2.0.1.tar.xz
-    fi
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
