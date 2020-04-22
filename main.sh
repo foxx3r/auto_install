@@ -42,7 +42,7 @@ then
     cd $HOME
     mkdir programacao math livros musicas filmes
     cd programacao
-    mkdir javascript/projetos javascript/git javascript/learn haskell/projetos haskell/git haskell/learn rust/projetos rust/git rust/learn shellprojetos shell/git shell/learn html/projetos html/git html/learn css/projetos css/git css/learn python/projetos python/git python/learn lisp/projetos lisp/git lisp/learn fsharp/projetos fsharp/git fsharp/learn prolog/projetos prolog/git prolog/learn java/projetos java/git java/learn c/projetos c/git c/learn cpp/projetos cpp/git cpp/learn v/projetos v/git v/learn vimscript/projetos vimscript/git vimscript/learn sql/projetos sql/git sql/learn -p
+    mkdir javascript/projetos javascript/git javascript/learn haskell/projetos haskell/git haskell/learn rust/projetos rust/git rust/learn shell/projetos shell/git shell/learn html/projetos html/git html/learn css/projetos css/git css/learn python/projetos python/git python/learn lisp/projetos lisp/git lisp/learn fsharp/projetos fsharp/git fsharp/learn prolog/projetos prolog/git prolog/learn java/projetos java/git java/learn c/projetos c/git c/learn cpp/projetos cpp/git cpp/learn v/projetos v/git v/learn vimscript/projetos vimscript/git vimscript/learn sql/projetos sql/git sql/learn -p
     git clone https://github.com/foxx3r/amazing-vimrc vimscript/git/amazing-vimrc
     git clone https://github.com/foxx3r/ap_haskell haskell/git/ap_haskell
     git clone https://github.com/foxx3r/josephus_problem_haskell haskell/git/josephus_problem_haskell
