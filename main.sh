@@ -8,6 +8,8 @@ read -p "-> " choose
 
 if [[ $choose == "1" ]]
 then
+    apt update
+    apt upgrade -y
     apt install sudo -y
     apt install clisp sbcl -y
     apt install python3-pip -y
@@ -17,22 +19,21 @@ then
     npm i -g yarn
     pip install httpie
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/foxx3r/amazing-vimrc/master/install.sh)"
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     sed -i "s/robbyrussell/clean/g" $HOME/.zshrc
-    echo -e "você quer instalar o ambiente haskell?\n1 - sim\n2 - não\n-> "
-    read haskell_environment
+    echo -e "você quer instalar o ambiente haskell?\n1 - sim\n2 - não"
+    read -p "-> " haskell_environment
     if [[ $haskell_environment == "1" ]]
     then
         apt install haskell-platform -y
     fi
-    echo -e "você quer instalar o ambiente rust?\n1 - sim\n2 - não\n-> "
-    read rust_environment
+    echo -e "você quer instalar o ambiente rust?\n1 - sim\n2 - não"
+    read "-> " rust_environment
     if [[ $rust_environment == "1" ]]
     then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
-    echo -e "você quer instalar o ambiente LISP + emacs?\n1 - sim\n2 - não\n-> "
-    read emacs_environment
+    echo -e "você quer instalar o ambiente LISP + emacs?\n1 - sim\n2 - não"
+    read -p "-> " emacs_environment
     if [[ $emacs_environment == "1" ]]
     then
         apt install emacs -y
@@ -68,12 +69,13 @@ then
     git clone https://github.com/foxx3r/comparador-de-hashs shell/git/comparador-de-hashs
     git clone https://github.com/foxx3r/monitor-do-sistema shell/git/monitor-do-sistema
     git clone https://github.com/foxx3r/whereisfox shell/git/whereisfox
-    git clone https://github.com/foxx3r/auto_install shell/gitauto_install
-    echo -e "você gostaria de instalar o ambiente desktop?\n1 - sim\n2 - não\n-> "
-    read desktop_environment
+    git clone https://github.com/foxx3r/auto_install shell/git/auto_install
+    echo -e "você gostaria de instalar o ambiente desktop?\n1 - sim\n2 - não"
+    read -p "-> " desktop_environment
     if [[ $desktop_environment == "1" ]]
     then
         apt install chromium evince qterminal vlc -y
         wget https://updates.tdesktop.com/tlinux32/tsetup32.2.0.1.tar.xz
     fi
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
