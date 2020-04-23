@@ -11,19 +11,20 @@ then
     apt update
     apt upgrade -y
     apt install sudo -y
-    echo "você deseja criar/configurar seu usuário?\n1 - sim\n2 - não"
+    echo -e "você deseja criar/configurar seu usuário?\n1 - sim\n2 - não"
     read -p "-> " user_config
     if [[ $user_config == "1" ]]
     then
         adduser foxxer
         echo "foxxer    ALL=(ALL:ALL) ALL" >> /etc/sudoers
     fi
-    apt install clisp sbcl -y
-    apt install python3-pip -y
+    apt install python3-pip npm clisp sbcl -y
     apt install swi-prolog gnupg python curl wget clang zsh git elixir neovim nodejs -y
     git config --global user.email "coluna123@protonmail.ch"
     git config --global user.name "foxx3r"
+    npm config set strict-ssl false
     npm i -g yarn
+    yarn config set strict-ssl false
     pip install httpie
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/foxx3r/amazing-vimrc/master/install.sh)"
     echo -e "você quer instalar o ambiente haskell?\n1 - sim\n2 - não"
@@ -52,7 +53,7 @@ then
         apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
         echo "deb https://download.mono-project.com/repo/ubuntu stable-bionic main" | tee /etc/apt/sources.list.d/mono-official-stable.list
         apt update 
-        apt install mono-complete fsharp
+        apt install mono-complete fsharp -y
     fi
     echo -e "você gostaria de instalar o ambiente desktop?\n1 - sim\n2 - não"
     read -p "-> " desktop_environment
