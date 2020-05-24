@@ -19,14 +19,14 @@ then
         echo "foxxer    ALL=(ALL:ALL) ALL" >> /etc/sudoers
     fi
     apt install python3-pip npm clisp sbcl -y
-    apt install swi-prolog gnupg python curl wget clang zsh git elixir neovim nodejs -y
+    apt install swi-prolog gnupg python curl wget ruby clang zsh git elixir neovim nodejs -y
     git config --global user.email "coluna123@protonmail.ch"
     git config --global user.name "foxx3r"
     npm config set strict-ssl false
     npm i -g yarn
     yarn config set strict-ssl false
     pip install httpie
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/foxx3r/amazing-vimrc/master/install.sh)"
+    sh -c "$(wget -O- https://raw.githubusercontent.com/foxx3r/amazing-vimrc/master/install.sh)"
     echo -e "você quer instalar o ambiente haskell?\n1 - sim\n2 - não"
     read -p "-> " haskell_environment
     if [[ $haskell_environment == "1" ]]
@@ -39,12 +39,20 @@ then
     then
         curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
     fi
-    echo -e "você quer instalar o ambiente LISP + emacs?\n1 - sim\n2 - não"
+    echo -e "você quer instalar o ambiente spacemacs?\n1 - sim\n2 - não"
     read -p "-> " emacs_environment
     if [[ $emacs_environment == "1" ]]
     then
-        apt install emacs -y
-        echo -e "(require 'package)\n(add-to-list 'package-archives '(\"melpa\" . \"http://melpa.milkbox.net/packages/\"))\n(package-initialize)" >> $HOME/.emacs
+        if [[ -d "~/.emacs.d" ]]
+        then
+            rm -rf ~/.emacs.d 
+        fi
+        if [[ -e "~/.spacemacs" ]]
+        then
+            rm -rf ~/.spacemacs
+        fi
+        git clone git@github:foxx3r/awesome_spacemacs ~/.
+        rm -rf ~/.git
     fi 
     echo -e "você quer instalar o ambiente F#?\n1 - sim\n2 - não"
     read -p "-> " fsharp_environment
@@ -93,5 +101,5 @@ then
     git clone https://github.com/foxx3r/monitor-do-sistema shell/git/monitor-do-sistema
     git clone https://github.com/foxx3r/whereisfox shell/git/whereisfox
     git clone https://github.com/foxx3r/auto_install shell/git/auto_install
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
