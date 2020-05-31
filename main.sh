@@ -20,7 +20,7 @@ then
         echo "foxxer    ALL=(ALL:ALL) ALL" >> /etc/sudoers
     fi
     apt install python3-pip npm clisp sbcl -y
-    apt install swi-prolog gnupg xz-utils gforth python curl wget ruby clang zsh git elixir neovim nodejs -y
+    apt install swi-prolog gnupg xz-utils gforth python bat curl wget ruby clang zsh git elixir neovim nodejs -y
     git config --global user.email "coluna123@protonmail.ch"
     git config --global user.name "foxx3r"
     npm config set strict-ssl false
@@ -89,7 +89,7 @@ if [[ $choose == "5" ]]
 then
     apt update
     apt upgrade -y
-    apt install python3 nodejs swi-prolog zsh curl wget ruby zsh git elixir neovim gnupg enacs pforth -y
+    apt install python3 nodejs bat swi-prolog zsh curl wget ruby zsh git elixir neovim gnupg enacs pforth -y
     echo "deb https://its-pointless.github.io/files termux extras" >> $PREFIX/etc/apt/sources.list
     wget https://its-pointless.github.io/pointless.gpg
     apt-key add pointless.gpg
