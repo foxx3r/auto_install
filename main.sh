@@ -32,7 +32,7 @@ then
     read -p "-> " haskell_environment
     if [[ $haskell_environment == "1" ]]
     then
-        apt install ghc stack-haskell libghc-microlens-mtl-dev libghc-cabal-doctest-dev ibghc-mmorph-dev -y
+        apt install ghc stack-haskell libghc-microlens-mtl-dev libghc-cabal-doctest-dev libghc-mmorph-dev -y
     fi
     echo -e "você quer instalar o ambiente rust?\n1 - sim\n2 - não"
     read -p "-> " rust_environment
@@ -89,7 +89,7 @@ if [[ $choose == "5" ]]
 then
     apt update
     apt upgrade -y
-    apt install python3 nodejs bat swi-prolog zsh curl wget ruby zsh git elixir neovim gnupg enacs pforth -y
+    apt install python3 nodejs bat swi-prolog zsh curl wget ruby zsh git elixir neovim gnupg emacs pforth -y
     echo "deb https://its-pointless.github.io/files termux extras" >> $PREFIX/etc/apt/sources.list
     wget https://its-pointless.github.io/pointless.gpg
     apt-key add pointless.gpg
