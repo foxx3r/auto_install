@@ -20,7 +20,7 @@ then
         echo "foxxer    ALL=(ALL:ALL) ALL" >> /etc/sudoers
     fi
     apt install python3-pip npm clisp sbcl -y
-    apt install swi-prolog gnupg npm xz-utils gforth python bat curl wget ruby clang zsh git elixir neovim nodejs -y
+    apt install swi-prolog gnupg npm xz-utils ruby-dev gforth python bat curl wget ruby clang zsh git elixir neovim nodejs nano -y
     git config --global user.email "coluna123@protonmail.ch"
     git config --global user.name "foxx3r"
     npm config set strict-ssl false
