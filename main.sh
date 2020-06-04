@@ -27,7 +27,6 @@ then
     npm i -g yarn
     yarn config set strict-ssl false
     pip install httpie
-    sh -c "$(wget -O- https://raw.githubusercontent.com/foxx3r/amazing-vimrc/master/install.sh)"
     echo -e "você quer instalar o ambiente haskell?\n1 - sim\n2 - não"
     read -p "-> " haskell_environment
     if [[ $haskell_environment == "1" ]]
