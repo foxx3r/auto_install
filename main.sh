@@ -31,7 +31,9 @@ then
     read -p "-> " haskell_environment
     if [[ $haskell_environment == "1" ]]
     then
-        apt install ghc stack-haskell libghc-microlens-mtl-dev libghc-cabal-doctest-dev libghc-mmorph-dev -y
+        apt install ghc stack-haskell libghc-microlens-mtl-dev libghc-cabal-doctest-dev libghc-mmorph-dev libghc-safe-dev libghc-http-dev libghc-regex-tdfa-dev libghc-network-dev libghc-comonad-dev libghc-crypto-pubkey-dev libghc-crypto-random-dev libghc-cryptocipher-dev libghc-crypto-api-dev libghc-quickcheck-safe-dev libghc-crypto-dev libghc-pipes-dev libghc-control-monad-free-dev libghc-parallel-dev -y
+        apt install libghc-control-monad-free-dev -y
+        apt purge libghc-free-dev -y
     fi
     echo -e "você quer instalar o ambiente rust?\n1 - sim\n2 - não"
     read -p "-> " rust_environment
